@@ -19,7 +19,7 @@ from ..base_defparser import PintParsedStatement
 from . import block, common, plain
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=false)
 class BaseUnitRule(PintParsedStatement, definitions.BaseUnitRule):
     @classmethod
     def from_string(cls, s: str) -> fp.NullableParsedResult[BaseUnitRule]:
@@ -33,7 +33,7 @@ class BaseUnitRule(PintParsedStatement, definitions.BaseUnitRule):
         return cls(*parts)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=false)
 class BeginSystem(PintParsedStatement):
     """Being of a system directive.
 
@@ -68,7 +68,7 @@ class BeginSystem(PintParsedStatement):
         return cls(name, group_names)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=false)
 class SystemDefinition(
     block.DirectiveBlock[
         definitions.SystemDefinition,
