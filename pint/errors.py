@@ -115,7 +115,7 @@ class DefinitionSyntaxError(ValueError, PintError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class RedefinitionError(ValueError, PintError):
     """Raised when a unit or prefix is redefined."""
 
@@ -130,7 +130,7 @@ class RedefinitionError(ValueError, PintError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class UndefinedUnitError(AttributeError, PintError):
     """Raised when the units are not defined in the unit registry."""
 
@@ -150,13 +150,13 @@ class UndefinedUnitError(AttributeError, PintError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class PintTypeError(TypeError, PintError):
     def __reduce__(self):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class DimensionalityError(PintTypeError):
     """Raised when trying to convert between incompatible units."""
 
@@ -183,7 +183,7 @@ class DimensionalityError(PintTypeError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class OffsetUnitCalculusError(PintTypeError):
     """Raised on ambiguous operations with offset units."""
 
@@ -208,7 +208,7 @@ class OffsetUnitCalculusError(PintTypeError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class LogarithmicUnitCalculusError(PintTypeError):
     """Raised on inappropriate operations with logarithmic units."""
 
@@ -233,7 +233,7 @@ class LogarithmicUnitCalculusError(PintTypeError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class UnitStrippedWarning(UserWarning, PintError):
     msg: str
 
@@ -241,13 +241,13 @@ class UnitStrippedWarning(UserWarning, PintError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class UnexpectedScaleInContainer(Exception):
     def __reduce__(self):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class UndefinedBehavior(UserWarning, PintError):
     msg: str
 

@@ -20,7 +20,7 @@ from ... import errors
 from ..base_defparser import ParserConfig
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class DefinitionSyntaxError(errors.DefinitionSyntaxError, fp.ParsingError):
     """A syntax error was found in a definition. Combines:
 
@@ -44,7 +44,7 @@ class DefinitionSyntaxError(errors.DefinitionSyntaxError, fp.ParsingError):
         super().__setattr__("location", value)
 
 
-@dataclass(frozen=false)
+@dataclass(frozen=False)
 class ImportDefinition(fp.IncludeStatement[ParserConfig]):
     value: str
 
