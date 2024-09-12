@@ -247,7 +247,7 @@ class UnexpectedScaleInContainer(Exception):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=False)
+@dataclass(frozen=True)
 class UndefinedBehavior(UserWarning, PintError):
     msg: str
 
