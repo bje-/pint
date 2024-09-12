@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     from ..._typing import Quantity, UnitsContainer
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class Relation:
     """Base class for a relation between different dimensionalities."""
 
@@ -60,7 +60,7 @@ class Relation:
         raise NotImplementedError
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ForwardRelation(Relation):
     """A relation connecting a dimension to another via a transformation function.
 
@@ -72,7 +72,7 @@ class ForwardRelation(Relation):
         return False
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BidirectionalRelation(Relation):
     """A bidirectional relation connecting a dimension to another
     via a simple transformation function.
@@ -86,7 +86,7 @@ class BidirectionalRelation(Relation):
         return True
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ContextDefinition(errors.WithDefErr):
     """Definition of a Context"""
 

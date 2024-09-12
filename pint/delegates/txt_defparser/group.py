@@ -27,7 +27,7 @@ from ..base_defparser import PintParsedStatement
 from . import block, common, plain
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BeginGroup(PintParsedStatement):
     """Being of a group directive.
 
@@ -60,7 +60,7 @@ class BeginGroup(PintParsedStatement):
         return cls(name, parent_group_names)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class GroupDefinition(
     block.DirectiveBlock[
         definitions.GroupDefinition,

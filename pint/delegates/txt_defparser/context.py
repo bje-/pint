@@ -49,7 +49,7 @@ def _from_string_and_context_sep(
     return cls(src, dst, eq.strip())
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ForwardRelation(PintParsedStatement, definitions.ForwardRelation):
     """A relation connecting a dimension to another via a transformation function.
 
@@ -63,7 +63,7 @@ class ForwardRelation(PintParsedStatement, definitions.ForwardRelation):
         return _from_string_and_context_sep(cls, s, config, "->")
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BidirectionalRelation(PintParsedStatement, definitions.BidirectionalRelation):
     """A bidirectional relation connecting a dimension to another
     via a simple transformation function.
@@ -79,7 +79,7 @@ class BidirectionalRelation(PintParsedStatement, definitions.BidirectionalRelati
         return _from_string_and_context_sep(cls, s, config, "<->")
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BeginContext(PintParsedStatement):
     """Being of a context directive.
 
@@ -129,7 +129,7 @@ class BeginContext(PintParsedStatement):
         return cls(name, tuple(aliases), defaults)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ContextDefinition(
     block.DirectiveBlock[
         definitions.ContextDefinition,

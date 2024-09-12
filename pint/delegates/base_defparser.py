@@ -25,7 +25,7 @@ from pint.facets.plain.definitions import NotNumeric
 from pint.util import ParserHelper, UnitsContainer
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ParserConfig:
     """Configuration used by the parser in Pint."""
 
@@ -67,7 +67,7 @@ class ParserConfig:
         return val.scale
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class PintParsedStatement(fp.ParsedStatement[ParserConfig]):
     """A parsed statement for pint, specialized in the actual config."""
 
@@ -76,18 +76,18 @@ class PintParsedStatement(fp.ParsedStatement[ParserConfig]):
 def build_disk_cache_class(chosen_non_int_type: type):
     """Build disk cache class, taking into account the non_int_type."""
 
-    @dataclass(frozen=True)
+    @dataclass(frozen=False)
     class PintHeader(fc.InvalidateByExist, fc.NameByFields, fc.BasicPythonHeader):
         from .. import __version__
 
         pint_version: str = __version__
         non_int_type: str = chosen_non_int_type.__qualname__
 
-    @dataclass(frozen=True)
+    @dataclass(frozen=False)
     class PathHeader(fc.NameByFileContent, PintHeader):
         pass
 
-    @dataclass(frozen=True)
+    @dataclass(frozen=False)
     class ParsedProjecHeader(fc.NameByHashIter, PintHeader):
         @classmethod
         def from_parsed_project(

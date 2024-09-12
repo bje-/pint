@@ -15,7 +15,7 @@ from ...compat import HAS_NUMPY, exp, log
 from ..plain import ScaleConverter
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class OffsetConverter(ScaleConverter):
     """An affine transformation."""
 
@@ -50,7 +50,7 @@ class OffsetConverter(ScaleConverter):
         return None
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class LogarithmicConverter(ScaleConverter):
     """Converts between linear units and logarithmic units, such as dB, octave, neper or pH.
     Q_log = logfactor * log( Q_lin / scale ) / log(log_base)

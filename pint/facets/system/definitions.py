@@ -15,7 +15,7 @@ from ... import errors
 from ...compat import Self
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BaseUnitRule:
     """A rule to define a base unit within a system."""
 
@@ -32,7 +32,7 @@ class BaseUnitRule:
     # could be used.
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class SystemDefinition(errors.WithDefErr):
     """Definition of a System."""
 

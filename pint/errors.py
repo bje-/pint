@@ -81,12 +81,12 @@ class WithDefErr:
         return DefinitionError(self.name, self.__class__, msg)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class PintError(Exception):
     """Base exception for all Pint errors."""
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DefinitionError(ValueError, PintError):
     """Raised when a definition is not properly constructed."""
 
@@ -102,7 +102,7 @@ class DefinitionError(ValueError, PintError):
         return self.__class__, tuple(getattr(self, f.name) for f in fields(self))
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DefinitionSyntaxError(ValueError, PintError):
     """Raised when a textual definition has a syntax error."""
 

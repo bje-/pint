@@ -23,7 +23,7 @@ from ..base_defparser import PintParsedStatement
 from . import block, plain
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class BeginDefaults(PintParsedStatement):
     """Being of a defaults directive.
 
@@ -37,7 +37,7 @@ class BeginDefaults(PintParsedStatement):
         return None
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DefaultsDefinition(
     block.DirectiveBlock[
         definitions.DefaultsDefinition,

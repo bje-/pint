@@ -23,7 +23,7 @@ import flexparser as fp
 from ..base_defparser import ParserConfig, PintParsedStatement
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class EndDirectiveBlock(PintParsedStatement):
     """An EndDirectiveBlock is simply an "@end" statement."""
 
@@ -40,7 +40,7 @@ IPST = TypeVar("IPST", bound="PintParsedStatement")
 DefT = TypeVar("DefT")
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DirectiveBlock(
     Generic[DefT, OPST, IPST], fp.Block[OPST, IPST, EndDirectiveBlock, ParserConfig]
 ):

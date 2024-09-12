@@ -16,7 +16,7 @@ from ...compat import Self
 from .. import plain
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class GroupDefinition(errors.WithDefErr):
     """Definition of a group."""
 

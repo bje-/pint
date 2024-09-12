@@ -18,7 +18,7 @@ from ._typing import Magnitude
 from .compat import HAS_NUMPY, Self, exp, log  # noqa: F401
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class Converter:
     """Base class for value converters."""
 

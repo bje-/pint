@@ -34,7 +34,7 @@ from ..base_defparser import ParserConfig, PintParsedStatement
 from . import common
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class Equality(PintParsedStatement, definitions.Equality):
     """An equality statement contains a left and right hand separated
 
@@ -53,7 +53,7 @@ class Equality(PintParsedStatement, definitions.Equality):
         return cls(*parts)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class CommentDefinition(PintParsedStatement, definitions.CommentDefinition):
     """Comments start with a # character.
 
@@ -70,7 +70,7 @@ class CommentDefinition(PintParsedStatement, definitions.CommentDefinition):
         return cls(s[1:].strip())
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class PrefixDefinition(PintParsedStatement, definitions.PrefixDefinition):
     """Definition of a prefix::
 
@@ -119,7 +119,7 @@ class PrefixDefinition(PintParsedStatement, definitions.PrefixDefinition):
             return common.DefinitionSyntaxError(str(exc))
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class UnitDefinition(PintParsedStatement, definitions.UnitDefinition):
     """Definition of a unit::
 
@@ -194,7 +194,7 @@ class UnitDefinition(PintParsedStatement, definitions.UnitDefinition):
             return common.DefinitionSyntaxError(str(ex))
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DimensionDefinition(PintParsedStatement, definitions.DimensionDefinition):
     """Definition of a root dimension::
 
@@ -215,7 +215,7 @@ class DimensionDefinition(PintParsedStatement, definitions.DimensionDefinition):
         return cls(s)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DerivedDimensionDefinition(
     PintParsedStatement, definitions.DerivedDimensionDefinition
 ):
@@ -256,7 +256,7 @@ class DerivedDimensionDefinition(
             return common.DefinitionSyntaxError(str(exc))
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class AliasDefinition(PintParsedStatement, definitions.AliasDefinition):
     """Additional alias(es) for an already existing unit::
 

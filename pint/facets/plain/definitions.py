@@ -33,7 +33,7 @@ class NotNumeric(Exception):
 ########################
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class Equality:
     """An equality statement contains a left and right hand separated
     by and equal (=) sign.
@@ -47,14 +47,14 @@ class Equality:
     rhs: str
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class CommentDefinition:
     """A comment"""
 
     comment: str
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DefaultsDefinition:
     """Directive to store default values."""
 
@@ -68,13 +68,13 @@ class DefaultsDefinition:
             yield "system", self.system
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class NamedDefinition:
     #: name of the prefix
     name: str
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class PrefixDefinition(NamedDefinition, errors.WithDefErr):
     """Definition of a prefix."""
 
@@ -113,7 +113,7 @@ class PrefixDefinition(NamedDefinition, errors.WithDefErr):
                 )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class UnitDefinition(NamedDefinition, errors.WithDefErr):
     """Definition of a unit."""
 
@@ -215,7 +215,7 @@ class UnitDefinition(NamedDefinition, errors.WithDefErr):
         return bool(self.defined_symbol)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DimensionDefinition(NamedDefinition, errors.WithDefErr):
     """Definition of a root dimension"""
 
@@ -228,7 +228,7 @@ class DimensionDefinition(NamedDefinition, errors.WithDefErr):
             raise self.def_err(errors.MSG_INVALID_DIMENSION_NAME)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class DerivedDimensionDefinition(DimensionDefinition):
     """Definition of a derived dimension."""
 
@@ -259,7 +259,7 @@ class DerivedDimensionDefinition(DimensionDefinition):
             )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class AliasDefinition(errors.WithDefErr):
     """Additional alias(es) for an already existing unit."""
 
@@ -279,7 +279,7 @@ class AliasDefinition(errors.WithDefErr):
                 )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ScaleConverter(Converter):
     """A linear transformation without offset."""
 
